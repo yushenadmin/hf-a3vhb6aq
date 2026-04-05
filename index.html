@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws & Hearts Adoption</title>
+  <meta name="description" content="Find your new best friend at Paws & Hearts Adoption. Explore pets, learn the adoption process, and make a forever home." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0f1021;
+      --bg-soft: #17182f;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f7f7fb;
+      --muted: #c8c9d4;
+      --accent: #ff7b72;
+      --accent-2: #8b5cf6;
+      --accent-3: #ffd166;
+      --line: rgba(255, 255, 255, 0.12);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1200px;
+      --nav-h: 78px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 123, 114, 0.18), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.22), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(255, 209, 102, 0.14), transparent 25%),
+        linear-gradient(135deg, #0a0b16 0%, #0f1021 50%, #161733 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .45rem .9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--accent-3);
+      font-size: .88rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      max-width: 12ch;
+    }
+
+    p.lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: .3s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--line);
+      color: var(--text);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      backdrop-filter: blur(18px);
+      background: rgba(10, 11, 22, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -.02em;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 24px rgba(255,123,114,0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      position: relative;
+      padding: .4rem 0;
+      transition: color .25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+      background: linear-gradient(90deg, var(--accent), var(--accent-3));
+      border-radius: 99px;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 70px 0 80px;
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy .eyebrow {
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-copy p {
+      margin: 1.2rem 0 1.8rem;
+      color: var(--muted);
+      max-width: 58ch;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 1rem;
+      max-width: 640px;
+    }
+
+    .stat {
+      padding: 1rem 1.1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat h3 {
+      font-size: 1.5rem;
+      margin-bottom: .2rem;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .blob {
+      position: absolute;
+      inset: auto;
+      border-radius: 999px;
+      filter: blur(40px);
+      opacity: .6;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .blob.one {
+      width: 180px;
+      height: 180px;
+      top: 20px;
+      right: 30px;
+      background: rgba(255, 123, 114, 0.35);
+    }
+
+    .blob.two {
+      width: 220px;
+      height: 220px;
+      bottom: 80px;
+      left: 0;
+      background: rgba(139, 92, 246, 0.3);
+      animation-delay: -2s;
+    }
+
+    .hero-card {
+      position: absolute;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-card.main {
+      width: min(100%, 420px);
+      height: 520px;
+      right: 20px;
+      top: 0;
+    }
+
+    .hero-card.small {
+      width: 210px;
+      height: 170px;
+      left: 30px;
+      bottom: 45px;
+      padding: 12px;
+    }
+
+    .hero-card.small .inner {
+      height: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .8rem;
+      padding: .85rem 1rem;
+      border-radius: 18px;
+      background: rgba(10,11,22,0.55);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+
+    .floating-badge .name {
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .floating-badge .tag {
+      font-size: .82rem;
+      color: var(--accent-3);
+    }
+
+    .adopted-chip {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: .65rem .9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,123,114,0.9), rgba(139,92,246,0.9));
+      font-weight: 700;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+    }
+
+    .info-mini {
+      position: absolute;
+      right: -10px;
+      bottom: 80px;
+      width: 220px;
+      padding: 1rem;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .info-mini .row {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .info-mini .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255, 209, 102, 0.16);
+      color: var(--accent-3);
+      flex-shrink: 0;
+    }
+
+    .info-mini p {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: .3rem;
+    }
+
+    .pet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .pet-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .35s ease, border-color .35s ease;
+    }
+
+    .pet-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .pet-media {
+      position: relative;
+      aspect-ratio: 4 / 4.2;
+      overflow: hidden;
+    }
+
+    .pet-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .pet-card:hover .pet-media img {
+      transform: scale(1.06);
+    }
+
+    .pet-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      background: rgba(10, 11, 22, 0.7);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(12px);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .pet-content {
+      padding: 1.2rem;
+    }
+
+    .pet-top {
+      display: flex;
+      justify-content: space-between;
+      gap: .8rem;
+      align-items: start;
+      margin-bottom: .7rem;
+    }
+
+    .pet-top h3 {
+      font-size: 1.3rem;
+      margin-bottom: .2rem;
+    }
+
+    .pet-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: .8rem 0 1rem;
+    }
+
+    .pill {
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .pet-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .pet-actions .btn {
+      padding: .8rem 1rem;
+      font-size: .92rem;
+    }
+
+    .process-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      align-items: stretch;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      transition: transform .3s ease, background .3s ease;
+    }
+
+    .step:hover {
+      transform: translateX(6px);
+      background: rgba(255,255,255,0.09);
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 12px 24px rgba(139,92,246,0.28);
+    }
+
+    .step p {
+      color: var(--muted);
+      margin-top: .45rem;
+    }
+
+    .process-card {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .process-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .85;
+    }
+
+    .process-overlay {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      min-height: 520px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      background: linear-gradient(180deg, rgba(10,11,22,0.06), rgba(10,11,22,0.86));
+    }
+
+    .process-panel {
+      max-width: 460px;
+      padding: 1.3rem;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 1.4rem;
+    }
+
+    .testimonial {
+      padding: 2rem;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,123,114,0.13), rgba(139,92,246,0.12));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      color: var(--accent-3);
+      margin-bottom: 1rem;
+    }
+
+    .quote {
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      margin-bottom: 1.2rem;
+      max-width: 28ch;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+
+    .author img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.18);
+    }
+
+    .story-cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .mini-card {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 18px;
+      object-fit: cover;
+    }
+
+    .cta {
+      padding-top: 30px;
+    }
+
+    .cta-box {
+      border-radius: 32px;
+      padding: clamp(1.6rem, 4vw, 3rem);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,209,102,0.18), transparent 25%),
+        linear-gradient(135deg, rgba(255,123,114,0.18), rgba(139,92,246,0.18));
+      border: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      padding: 40px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 1.5rem;
+      padding: 1.8rem 0 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--muted);
+    }
+
+    .footer h4 {
+      margin-bottom: .8rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      transition: .25s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    .copyright {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      text-align: center;
+      font-size: .92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-18px); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .process-wrap,
+      .stories-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pet-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .hero-card.main {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-card.small {
+        left: 0;
+      }
+
+      .info-mini {
+        right: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --nav-h: 74px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .nav-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(var(--nav-h) - 2px);
+        left: 1rem;
+        right: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: .2rem;
+        padding: .8rem;
+        background: rgba(15, 16, 33, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: .28s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links a {
+        padding: .9rem 1rem;
+        border-radius: 14px;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(255,255,255,0.06);
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-stats,
+      .pet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .hero-card.main {
+        height: 420px;
+        width: 100%;
+      }
+
+      .hero-card.small {
+        width: 160px;
+        height: 130px;
+        bottom: 16px;
+      }
+
+      .info-mini {
+        width: 180px;
+        bottom: 40px;
+      }
+
+      .mini-card {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-card img {
+        width: 100%;
+        height: 180px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+        <span>Paws & Hearts</span>
+      </a>
+
+      <nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#pets">Pets</a></li>
+          <li><a href="#process">Adoption Process</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><i class="fa-solid fa-heart"></i> Give a pet a forever home</span>
+          <h1>Adopt joy, loyalty, and a lifetime of tail wags.</h1>
+          <p>
+            Meet rescued dogs and cats ready for a fresh start. Browse lovable companions,
+            learn our adoption steps, and discover how simple it is to welcome a new best friend.
+          </p>
+          <div class="hero-actions">
+            <a href="#pets" class="btn btn-primary"><i class="fa-solid fa-paw"></i> Meet the Pets</a>
+            <a href="#process" class="btn btn-secondary"><i class="fa-solid fa-list-check"></i> How It Works</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <h3>420+</h3>
+              <p>Successful adoptions</p>
+            </div>
+            <div class="stat">
+              <h3>36</h3>
+              <p>Pets available now</p>
+            </div>
+            <div class="stat">
+              <h3>4.9/5</h3>
+              <p>Happy adopter rating</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="blob one"></div>
+          <div class="blob two"></div>
+
+          <div class="hero-card main">
+            <div class="floating-badge">
+              <div>
+                <div class="name">Luna</div>
+                <div class="tag">2 years old • Gentle • Playful</div>
+              </div>
+              <i class="fa-solid fa-shield-dog"></i>
+            </div>
+            <div class="adopted-chip"><i class="fa-solid fa-star"></i> Staff Favorite</div>
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80" alt="Adoptable dog" />
+          </div>
+
+          <div class="hero-card small">
+            <div class="inner">
+              <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=800&q=80" alt="Adoptable cat" />
+            </div>
+          </div>
+
+          <div class="info-mini">
+            <div class="row">
+              <div class="icon"><i class="fa-solid fa-house"></i></div>
+              <div>
+                <strong>Home-ready pets</strong>
+                <p>Vaccinated, health-checked, and waiting for a loving family.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pets">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow"><i class="fa-solid fa-bone"></i> Featured Companions</span>
+            <h2>Find the one who fits your world.</h2>
+          </div>
+          <p class="lead">
+            Every pet has a story, a personality, and a heart ready to connect. Start with a few of our most-loved residents.
+          </p>
+        </div>
+
+        <div class="pet-grid">
+          <article class="pet-card reveal">
+            <div class="pet-media">
+              <span class="pet-badge">Ready to Adopt</span>
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80" alt="Milo the dog" />
+            </div>
+            <div class="pet-content">
+              <div class="pet-top">
+                <div>
+                  <h3>Milo</h3>
+                  <p>Friendly mixed breed with endless energy.</p>
+                </div>
+                <i class="fa-solid fa-dog"></i>
+              </div>
+              <div class="pet-meta">
+                <span class="pill"><i class="fa-solid fa-cake-candles"></i> 1 year</span>
+                <span class="pill"><i class="fa-solid fa-location-dot"></i> Small</span>
+                <span class="pill"><i class="fa-solid fa-heart"></i> Social</span>
+              </div>
+              <div class="pet-actions">
+                <span class="pill"><i class="fa-solid fa-check"></i> Vaccinated</span>
+                <a href="#process" class="btn btn-secondary">Adopt Milo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pet-card reveal">
+            <div class="pet-media">
+              <span class="pet-badge">Calm & Sweet</span>
+              <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1000&q=80" alt="Nova the cat" />
+            </div>
+            <div class="pet-content">
+              <div class="pet-top">
+                <div>
+                  <h3>Nova</h3>
+                  <p>Curious indoor cat who loves warm windows.</p>
+                </div>
+                <i class="fa-solid fa-cat"></i>
+              </div>
+              <div class="pet-meta">
+                <span class="pill"><i class="fa-solid fa-cake-candles"></i> 3 years</span>
+                <span class="pill"><i class="fa-solid fa-location-dot"></i> Medium</span>
+                <span class="pill"><i class="fa-solid fa-heart"></i> Gentle</span>
+              </div>
+              <div class="pet-actions">
+                <span class="pill"><i class="fa-solid fa-check"></i> Neutered</span>
+                <a href="#process" class="btn btn-secondary">Adopt Nova</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pet-card reveal">
+            <div class="pet-media">
+              <span class="pet-badge">Family Match</span>
+              <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1000&q=80" alt="Coco the puppy" />
+            </div>
+            <div class="pet-content">
+              <div class="pet-top">
+                <div>
+                  <h3>Coco</h3>
+                  <p>Bright-eyed puppy who adores kids and toys.</p>
+                </div>
+                <i class="fa-solid fa-dog"></i>
+              </div>
+              <div class="pet-meta">
+                <span class="pill"><i class="fa-solid fa-cake-candles"></i> 8 months</span>
+                <span class="pill"><i class="fa-solid fa-location-dot"></i> Small</span>
+                <span class="pill"><i class="fa-solid fa-heart"></i> Playful</span>
+              </div>
+              <div class="pet-actions">
+                <span class="pill"><i class="fa-solid fa-check"></i> Health Checked</span>
+                <a href="#process" class="btn btn-secondary">Adopt Coco</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow"><i class="fa-solid fa-route"></i> Adoption Journey</span>
+            <h2>A caring process built for the right match.</h2>
+          </div>
+          <p class="lead">
+            We keep the experience warm, clear, and supportive so every adoption starts with confidence.
+          </p>
+        </div>
+
+        <div class="process-wrap">
+          <div class="process-list">
+            <div class="step reveal">
+              <div class="step-num">1</div>
+              <div>
+                <h3>Explore & Choose</h3>
+                <p>Browse available pets, learn about their personalities, and shortlist the companions that feel right for your home.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step-num">2</div>
+              <div>
+                <h3>Submit an Application</h3>
+                <p>Share basic information about your lifestyle, home environment, and the kind of pet relationship you are hoping for.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step-num">3</div>
+              <div>
+                <h3>Meet Your Match</h3>
+                <p>Schedule a visit or virtual introduction. Our team helps you connect, ask questions, and see if the chemistry is right.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step-num">4</div>
+              <div>
+                <h3>Bring Them Home</h3>
+                <p>Complete adoption, receive care guidance, and start your new chapter with support from our team even after day one.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-card reveal">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1200&q=80" alt="Person hugging adopted dog" />
+            <div class="process-overlay">
+              <div class="process-panel">
+                <span class="eyebrow"><i class="fa-solid fa-handshake-angle"></i> Adoption Promise</span>
+                <h3 style="margin: 1rem 0 .7rem;">We focus on lasting bonds, not rushed decisions.</h3>
+                <p style="color: var(--muted);">
+                  Our team carefully guides each step so adopters and pets feel prepared, safe, and excited for the transition home.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stories">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Happy Endings</span>
+            <h2>Real stories from forever families.</h2>
+          </div>
+          <p class="lead">
+            Adoption changes lives on both sides of the leash. Here are a few moments our community loves to share.
+          </p>
+        </div>
+
+        <div class="stories-grid">
+          <div class="testimonial reveal">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote">
+              “We came for a visit and left with our best decision ever. Daisy filled our home with laughter from day one.”
+            </p>
+            <div class="author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Happy adopter" />
+              <div>
+                <strong>Emma Rodriguez</strong>
+                <p>Adopted Daisy, 2024</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-cards">
+            <div class="mini-card reveal">
+              <img src="https://images.unsplash.com/photo-1537151672256-6caf2e9f8c95?auto=format&fit=crop&w=500&q=80" alt="Dog adoption story" />
+              <div>
+                <h3>Max Found His Hiking Buddy</h3>
+                <p style="color: var(--muted);">Now he spends every weekend on trails, lakesides, and road trips with his new family.</p>
+              </div>
+            </div>
+            <div class="mini-card reveal">
+              <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=500&q=80" alt="Cat adoption story" />
+              <div>
+                <h3>Willow Became the Queen of the Couch</h3>
+                <p style="color: var(--muted);">A shy rescue turned into the calm center of a cozy apartment and a very spoiled routine.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta reveal">
+          <div class="cta-box">
+            <div>
+              <span class="eyebrow"><i class="fa-solid fa-envelope-open-text"></i> Start Today</span>
+              <h3 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin: 1rem 0 .6rem;">Your future companion might already be waiting.</h3>
+              <p class="lead">Take the first step toward a forever friendship with a pet who needs your love.</p>
+            </div>
+            <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Contact Our Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid reveal">
+        <div>
+          <a href="#home" class="brand">
+            <span class="brand-icon"><i class="fa-solid fa-paw"></i></span>
+            <span>Paws & Hearts</span>
+          </a>
+          <p style="margin-top: 1rem; max-width: 40ch;">
+            A warm, modern adoption center connecting rescue pets with loving homes through thoughtful matching and compassionate care.
+          </p>
+          <div class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Visit</h4>
+          <p>128 Velvet Street</p>
+          <p>Brighton, CA 90210</p>
+          <p style="margin-top: .8rem;">Mon–Sat: 10:00 AM – 6:00 PM</p>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p><a href="mailto:hello@pawsandhearts.com">hello@pawsandhearts.com</a></p>
+          <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+          <p style="margin-top: .8rem;"><a href="#pets">Browse Pets</a></p>
+          <p><a href="#process">Adoption Process</a></p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2025 Paws & Hearts Adoption. Made for pets, people, and happy beginnings.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section, footer');
+    const reveals = document.querySelectorAll('.reveal');
+
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = toggleBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    });
+
+    navAnchors.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        const icon = toggleBtn.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      });
+    });
+
+    const setActiveLink = () => {
+      let current = 'home';
+      sections.forEach(section => {
+        const top = window.scrollY;
+        const offset = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        if (top >= offset && top < offset + height) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navAnchors.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+      });
+    };
+
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.88;
+      reveals.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < trigger) {
+          item.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', () => {
+      setActiveLink();
+      revealOnScroll();
+    });
+
+    window.addEventListener('load', () => {
+      setActiveLink();
+      revealOnScroll();
+    });
+  </script>
+</body>
+</html>
